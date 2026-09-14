@@ -1,0 +1,28 @@
+relationship 7f3bd0b0-76de-4fcd-a492-f56edd8e8fa7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProduct.StartDate
+	toColumn: LocalDateTable_e6db3a54-d271-4ae0-b462-b8dffed5da61.Date
+
+relationship c1f3e10b-1069-4c21-826f-61c809851fb7
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimProduct.EndDate
+	toColumn: LocalDateTable_47e5e6d1-fd1d-4481-8330-85878128a826.Date
+
+relationship 33674c08-5360-4f7d-9715-4efaecd96fbb
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomer.BirthDate
+	toColumn: LocalDateTable_2e612391-8ecc-48c7-ae53-838874bc9a13.Date
+
+relationship 82dfb938-bea4-428a-9c14-e4d57d2553dd
+	joinOnDateBehavior: datePartOnly
+	fromColumn: DimCustomer.DateFirstPurchase
+	toColumn: LocalDateTable_3233c18e-6e14-4719-9ca5-b90747ca74a0.Date
+
+relationship AutoDetected_4a4a595a-d5bf-48e4-8260-d13d19084d58
+	fromColumn: FactInternetSales.ProductKey
+	toColumn: DimProduct.ProductKey
+
+relationship AutoDetected_f347b10f-9af5-4dd6-9fca-1ff6ed457ff5
+	fromColumn: FactInternetSales.CustomerKey
+	toColumn: DimCustomer.CustomerKey
+

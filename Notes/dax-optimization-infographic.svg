@@ -1,0 +1,308 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 1850" width="1200" height="1850" style="background:#0b0f19; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;">
+  <defs>
+    <linearGradient id="gradBad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#ef4444" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#ef4444" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="gradGood" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#10b981" stop-opacity="0.2"/>
+      <stop offset="100%" stop-color="#10b981" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="headerGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="50%" stop-color="#818cf8"/>
+      <stop offset="100%" stop-color="#c084fc"/>
+    </linearGradient>
+    <filter id="shadow" x="-5%" y="-5%" width="110%" height="110%">
+      <feDropShadow dx="0" dy="4" stdDeviation="6" flood-color="#000" flood-opacity="0.4"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND PATTERN -->
+  <rect width="1200" height="1850" fill="#0b0f19"/>
+  <circle cx="200" cy="150" r="350" fill="#38bdf8" opacity="0.03" filter="blur(80px)"/>
+  <circle cx="1000" cy="800" r="400" fill="#818cf8" opacity="0.03" filter="blur(90px)"/>
+  <circle cx="300" cy="1400" r="350" fill="#10b981" opacity="0.03" filter="blur(80px)"/>
+
+  <!-- HEADER -->
+  <g transform="translate(60, 50)">
+    <rect x="0" y="0" width="1080" height="140" rx="16" fill="#131c2e" stroke="#1e293b" stroke-width="1.5" filter="url(#shadow)"/>
+    <text x="40" y="45" font-size="12" font-weight="700" fill="#38bdf8" letter-spacing="2">DAX OPTIMIZATION DEEP DIVE • BIGQUERY ADVENTUREWORKS</text>
+    <text x="40" y="85" font-size="30" font-weight="800" fill="#ffffff">Why Context Transition &amp; Fact Iteration Killed Performance</text>
+    <text x="40" y="115" font-size="14" fill="#94a3b8">Detailed visual diagnosis: <tspan fill="#f87171" font-weight="600">Total Sales Red BAD (107 ms)</tspan> vs <tspan fill="#4ade80" font-weight="600">Total Sales Red (4 ms)</tspan></text>
+  </g>
+
+  <!-- KPI HERO CARDS -->
+  <g transform="translate(60, 215)">
+    <!-- KPI 1 -->
+    <g transform="translate(0, 0)">
+      <rect width="250" height="115" rx="14" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="24" y="32" font-size="12" font-weight="600" fill="#94a3b8">TOTAL DURATION</text>
+      <text x="24" y="72" font-size="34" font-weight="800" fill="#38bdf8">26.8x</text>
+      <text x="120" y="68" font-size="13" font-weight="700" fill="#4ade80">FASTER</text>
+      <text x="24" y="98" font-size="12" fill="#64748b">107 ms down to 4 ms</text>
+    </g>
+    <!-- KPI 2 -->
+    <g transform="translate(276, 0)">
+      <rect width="250" height="115" rx="14" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="24" y="32" font-size="12" font-weight="600" fill="#94a3b8">STORAGE ENGINE DURATION</text>
+      <text x="24" y="72" font-size="34" font-weight="800" fill="#f43f5e">73x</text>
+      <text x="95" y="68" font-size="13" font-weight="700" fill="#4ade80">REDUCTION</text>
+      <text x="24" y="98" font-size="12" fill="#64748b">73 ms down to 1 ms</text>
+    </g>
+    <!-- KPI 3 -->
+    <g transform="translate(552, 0)">
+      <rect width="250" height="115" rx="14" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="24" y="32" font-size="12" font-weight="600" fill="#94a3b8">SE MATERIALIZATION</text>
+      <text x="24" y="72" font-size="34" font-weight="800" fill="#fbbf24">120k</text>
+      <text x="115" y="68" font-size="13" font-weight="700" fill="#4ade80">ROWS TO 1</text>
+      <text x="24" y="98" font-size="12" fill="#64748b">11.5 MB down to 1 KB</text>
+    </g>
+    <!-- KPI 4 -->
+    <g transform="translate(828, 0)">
+      <rect width="252" height="115" rx="14" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="24" y="32" font-size="12" font-weight="600" fill="#94a3b8">SE QUERY COUNT</text>
+      <text x="24" y="72" font-size="34" font-weight="800" fill="#a855f7">3 → 1</text>
+      <text x="120" y="68" font-size="13" font-weight="700" fill="#4ade80">QUERIES</text>
+      <text x="24" y="98" font-size="12" fill="#64748b">66% scan reduction</text>
+    </g>
+  </g>
+
+  <!-- ARCHITECTURE EXECUTION COMPARISON (FLOW DIAGRAM) -->
+  <g transform="translate(60, 355)">
+    <rect width="1080" height="470" rx="16" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="40" y="42" font-size="18" font-weight="700" fill="#ffffff">Execution Mechanism Comparison: Procedural Loop vs Set Filter</text>
+
+    <!-- LEFT COLUMN: THE SLOW PATH -->
+    <g transform="translate(40, 70)">
+      <rect width="480" height="365" rx="12" fill="url(#gradBad)" stroke="#ef4444" stroke-width="1.5" stroke-dasharray="0"/>
+      <rect x="20" y="20" width="130" height="28" rx="6" fill="#ef4444" opacity="0.2"/>
+      <text x="32" y="39" font-size="12" font-weight="700" fill="#f87171">SLOW PATH (107 ms)</text>
+
+      <!-- Step 1 -->
+      <circle cx="45" cy="85" r="14" fill="#ef4444" opacity="0.3"/>
+      <text x="41" y="90" font-size="12" font-weight="700" fill="#ffffff">1</text>
+      <text x="75" y="82" font-size="14" font-weight="600" fill="#ffffff">Iterates FactInternetSales</text>
+      <text x="75" y="100" font-size="12" fill="#94a3b8">SUMX loops across all 60,398 fact rows in memory</text>
+
+      <!-- Arrow -->
+      <line x1="45" y1="105" x2="45" y2="130" stroke="#f87171" stroke-width="2" marker-end="url(#arrow)"/>
+
+      <!-- Step 2 -->
+      <circle cx="45" cy="150" r="14" fill="#ef4444" opacity="0.3"/>
+      <text x="41" y="155" font-size="12" font-weight="700" fill="#ffffff">2</text>
+      <text x="75" y="147" font-size="14" font-weight="600" fill="#ffffff">Procedural IF + RELATED Check</text>
+      <text x="75" y="165" font-size="12" fill="#94a3b8">FE calls RELATED(DimProduct[Color]) for each row</text>
+
+      <!-- Arrow -->
+      <line x1="45" y1="170" x2="45" y2="195" stroke="#f87171" stroke-width="2"/>
+
+      <!-- Step 3 -->
+      <circle cx="45" cy="215" r="14" fill="#ef4444" opacity="0.3"/>
+      <text x="41" y="220" font-size="12" font-weight="700" fill="#ffffff">3</text>
+      <text x="75" y="212" font-size="14" font-weight="600" fill="#f87171">Row-Level Context Transition</text>
+      <text x="75" y="230" font-size="12" fill="#94a3b8">CALCULATE transforms 22 fact columns into filters 60,398 times!</text>
+
+      <!-- Arrow -->
+      <line x1="45" y1="235" x2="45" y2="260" stroke="#f87171" stroke-width="2"/>
+
+      <!-- Step 4 -->
+      <circle cx="45" cy="280" r="14" fill="#ef4444" opacity="0.3"/>
+      <text x="41" y="285" font-size="12" font-weight="700" fill="#ffffff">4</text>
+      <text x="75" y="277" font-size="14" font-weight="600" fill="#ffffff">Massive SE Datacache Materialization</text>
+      <text x="75" y="295" font-size="12" fill="#fca5a5">SE dumps 60,398 rows twice (11.5 MB) into single-threaded FE</text>
+
+      <rect x="25" y="320" width="430" height="30" rx="6" fill="#450a0a" stroke="#7f1d1d" stroke-width="1"/>
+      <text x="40" y="340" font-size="12" fill="#fca5a5">💥 Bottleneck: 73 ms in SE + 34 ms in FE, 3 SE Queries</text>
+    </g>
+
+    <!-- RIGHT COLUMN: THE FAST PATH -->
+    <g transform="translate(560, 70)">
+      <rect width="480" height="365" rx="12" fill="url(#gradGood)" stroke="#10b981" stroke-width="1.5"/>
+      <rect x="20" y="20" width="130" height="28" rx="6" fill="#10b981" opacity="0.2"/>
+      <text x="32" y="39" font-size="12" font-weight="700" fill="#4ade80">FAST PATH (4 ms)</text>
+
+      <!-- Step 1 -->
+      <circle cx="45" cy="85" r="14" fill="#10b981" opacity="0.3"/>
+      <text x="41" y="90" font-size="12" font-weight="700" fill="#ffffff">1</text>
+      <text x="75" y="82" font-size="14" font-weight="600" fill="#ffffff">Set-Based Filter Context</text>
+      <text x="75" y="100" font-size="12" fill="#94a3b8">CALCULATE injects DimProduct[Color] = "Red" predicate</text>
+
+      <!-- Arrow -->
+      <line x1="45" y1="105" x2="45" y2="130" stroke="#4ade80" stroke-width="2"/>
+
+      <!-- Step 2 -->
+      <circle cx="45" cy="150" r="14" fill="#10b981" opacity="0.3"/>
+      <text x="41" y="155" font-size="12" font-weight="700" fill="#ffffff">2</text>
+      <text x="75" y="147" font-size="14" font-weight="600" fill="#ffffff">Automatic Relationship Propagation</text>
+      <text x="75" y="165" font-size="12" fill="#94a3b8">Filter flows from DimProduct (606 rows) to Fact table keys</text>
+
+      <!-- Arrow -->
+      <line x1="45" y1="170" x2="45" y2="195" stroke="#4ade80" stroke-width="2"/>
+
+      <!-- Step 3 -->
+      <circle cx="45" cy="215" r="14" fill="#10b981" opacity="0.3"/>
+      <text x="41" y="220" font-size="12" font-weight="700" fill="#ffffff">3</text>
+      <text x="75" y="212" font-size="14" font-weight="600" fill="#4ade80">Direct Storage Engine Aggregation</text>
+      <text x="75" y="230" font-size="12" fill="#94a3b8">VertiPaq computes SUM(UnitPrice * SalesAmount) in columnar SE</text>
+
+      <!-- Arrow -->
+      <line x1="45" y1="235" x2="45" y2="260" stroke="#4ade80" stroke-width="2"/>
+
+      <!-- Step 4 -->
+      <circle cx="45" cy="280" r="14" fill="#10b981" opacity="0.3"/>
+      <text x="41" y="285" font-size="12" font-weight="700" fill="#ffffff">4</text>
+      <text x="75" y="277" font-size="14" font-weight="600" fill="#ffffff">Single Scalar Result Returned</text>
+      <text x="75" y="295" font-size="12" fill="#86efac">SE sends 1 row (1 KB) directly to FE in only 1 ms!</text>
+
+      <rect x="25" y="320" width="430" height="30" rx="6" fill="#064e3b" stroke="#065f46" stroke-width="1"/>
+      <text x="40" y="340" font-size="12" fill="#86efac">⚡ Optimized: 1 ms SE + 3 ms FE, 1 SE Query, 0 Materialization</text>
+    </g>
+  </g>
+
+  <!-- DATA BENCHMARK & SERVER TIMINGS BREAKDOWN -->
+  <g transform="translate(60, 850)">
+    <!-- LEFT: TIMING BAR CHARTS -->
+    <g transform="translate(0, 0)">
+      <rect width="525" height="360" rx="16" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="35" y="42" font-size="18" font-weight="700" fill="#ffffff">Server Timings Breakdown (ms)</text>
+
+      <!-- Slow Measure Bar -->
+      <text x="35" y="85" font-size="13" font-weight="600" fill="#f87171">Slow: Total Sales Red BAD (107 ms)</text>
+      <rect x="35" y="100" width="450" height="38" rx="8" fill="#1e293b"/>
+      <!-- SE segment: 73ms (68.2%) = 307px -->
+      <rect x="35" y="100" width="307" height="38" rx="8" fill="#f43f5e"/>
+      <!-- FE segment: 34ms (31.8%) = 143px -->
+      <rect x="342" y="100" width="143" height="38" rx="0" fill="#fbbf24"/>
+      <text x="140" y="124" font-size="12" font-weight="700" fill="#ffffff">SE: 73 ms (68%)</text>
+      <text x="365" y="124" font-size="12" font-weight="700" fill="#1e293b">FE: 34 ms</text>
+
+      <!-- Fast Measure Bar -->
+      <text x="35" y="175" font-size="13" font-weight="600" fill="#4ade80">Fast: Total Sales Red (4 ms)</text>
+      <rect x="35" y="190" width="450" height="38" rx="8" fill="#1e293b"/>
+      <!-- SE segment: 1ms = 15px -->
+      <rect x="35" y="190" width="25" height="38" rx="8" fill="#10b981"/>
+      <!-- FE segment: 3ms = 45px -->
+      <rect x="60" y="190" width="50" height="38" rx="0" fill="#38bdf8"/>
+      <text x="125" y="214" font-size="12" font-weight="700" fill="#4ade80">SE: 1 ms | FE: 3 ms (Total 4 ms)</text>
+
+      <!-- Legend -->
+      <g transform="translate(35, 260)">
+        <rect x="0" y="0" width="14" height="14" rx="3" fill="#f43f5e"/>
+        <text x="22" y="12" font-size="12" fill="#94a3b8">Storage Engine (SE)</text>
+        <rect x="170" y="0" width="14" height="14" rx="3" fill="#fbbf24"/>
+        <text x="192" y="12" fill="#94a3b8" font-size="12">Formula Engine (FE)</text>
+        <rect x="330" y="0" width="14" height="14" rx="3" fill="#10b981"/>
+        <text x="352" y="12" fill="#94a3b8" font-size="12">Optimized SE</text>
+      </g>
+
+      <text x="35" y="320" font-size="12" fill="#64748b">Notice: Slow measure SE duration alone is 18x larger than the ENTIRE fast query.</text>
+    </g>
+
+    <!-- RIGHT: VPAX & MATERIALIZATION TABLE -->
+    <g transform="translate(555, 0)">
+      <rect width="525" height="360" rx="16" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+      <text x="35" y="42" font-size="18" font-weight="700" fill="#ffffff">Diagnostic Evidence Summary</text>
+
+      <g transform="translate(35, 70)">
+        <!-- Table Header -->
+        <rect width="455" height="32" rx="6" fill="#1e293b"/>
+        <text x="15" y="21" font-size="12" font-weight="700" fill="#94a3b8">DIAGNOSTIC METRIC</text>
+        <text x="245" y="21" font-size="12" font-weight="700" fill="#f87171">SLOW MEASURE</text>
+        <text x="375" y="21" font-size="12" font-weight="700" fill="#4ade80">FAST MEASURE</text>
+
+        <!-- Row 1 -->
+        <line x1="0" y1="65" x2="455" y2="65" stroke="#1e293b"/>
+        <text x="15" y="55" font-size="13" fill="#ffffff">Total Elapsed Time</text>
+        <text x="245" y="55" font-size="13" font-weight="700" fill="#f87171">107 ms</text>
+        <text x="375" y="55" font-size="13" font-weight="700" fill="#4ade80">4 ms</text>
+
+        <!-- Row 2 -->
+        <line x1="0" y1="105" x2="455" y2="105" stroke="#1e293b"/>
+        <text x="15" y="95" font-size="13" fill="#ffffff">SE Scans / Queries</text>
+        <text x="245" y="95" font-size="13" font-weight="700" fill="#f87171">3 queries</text>
+        <text x="375" y="95" font-size="13" font-weight="700" fill="#4ade80">1 query</text>
+
+        <!-- Row 3 -->
+        <line x1="0" y1="145" x2="455" y2="145" stroke="#1e293b"/>
+        <text x="15" y="135" font-size="13" fill="#ffffff">SE Materialized Rows</text>
+        <text x="245" y="135" font-size="13" font-weight="700" fill="#f87171">120,797 rows</text>
+        <text x="375" y="135" font-size="13" font-weight="700" fill="#4ade80">1 row</text>
+
+        <!-- Row 4 -->
+        <line x1="0" y1="185" x2="455" y2="185" stroke="#1e293b"/>
+        <text x="15" y="175" font-size="13" fill="#ffffff">Materialized Cache Size</text>
+        <text x="245" y="175" font-size="13" font-weight="700" fill="#f87171">11,563 KB (11.3MB)</text>
+        <text x="375" y="175" font-size="13" font-weight="700" fill="#4ade80">1 KB</text>
+
+        <!-- Row 5 -->
+        <line x1="0" y1="225" x2="455" y2="225" stroke="#1e293b"/>
+        <text x="15" y="215" font-size="13" fill="#ffffff">Fact Table Rows (VPAX)</text>
+        <text x="245" y="215" font-size="13" fill="#94a3b8">60,398 rows</text>
+        <text x="375" y="215" font-size="13" fill="#94a3b8">60,398 rows</text>
+
+        <!-- Row 6 -->
+        <text x="15" y="255" font-size="13" fill="#ffffff">DimProduct[Color] Card.</text>
+        <text x="245" y="255" font-size="13" fill="#94a3b8">10 values (606 rows)</text>
+        <text x="375" y="255" font-size="13" fill="#94a3b8">10 values (606 rows)</text>
+      </g>
+    </g>
+  </g>
+
+  <!-- CODE BEFORE & AFTER -->
+  <g transform="translate(60, 1240)">
+    <rect width="1080" height="340" rx="16" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="40" y="42" font-size="18" font-weight="700" fill="#ffffff">DAX Pattern Comparison: Anti-Pattern vs Best Practice</text>
+
+    <!-- ANTI-PATTERN CODE BOX -->
+    <g transform="translate(40, 65)">
+      <rect width="480" height="245" rx="10" fill="#0b0f19" stroke="#ef4444" stroke-width="1"/>
+      <rect x="0" y="0" width="480" height="34" rx="10" fill="#1e293b"/>
+      <text x="16" y="22" font-size="12" font-weight="700" fill="#f87171">❌ ANTI-PATTERN: Procedural Fact Iteration</text>
+
+      <text x="20" y="65" font-size="13" font-family="Consolas, Monaco, monospace" fill="#f87171">Total Sales Red BAD =</text>
+      <text x="20" y="90" font-size="13" font-family="Consolas, Monaco, monospace" fill="#38bdf8">SUMX (</text>
+      <text x="40" y="115" font-size="13" font-family="Consolas, Monaco, monospace" fill="#e2e8f0">    FactInternetSales,</text>
+      <text x="40" y="140" font-size="13" font-family="Consolas, Monaco, monospace" fill="#38bdf8">    IF (</text>
+      <text x="60" y="165" font-size="13" font-family="Consolas, Monaco, monospace" fill="#e2e8f0">        RELATED( DimProduct[Color] ) = "Red",</text>
+      <text x="60" y="190" font-size="13" font-family="Consolas, Monaco, monospace" fill="#fbbf24">        CALCULATE ( [Total Sales] )  <tspan fill="#94a3b8">-- Context Transition!</tspan></text>
+      <text x="40" y="215" font-size="13" font-family="Consolas, Monaco, monospace" fill="#38bdf8">    )</text>
+      <text x="20" y="235" font-size="13" font-family="Consolas, Monaco, monospace" fill="#38bdf8">)</text>
+    </g>
+
+    <!-- OPTIMIZED CODE BOX -->
+    <g transform="translate(560, 65)">
+      <rect width="480" height="245" rx="10" fill="#0b0f19" stroke="#10b981" stroke-width="1"/>
+      <rect x="0" y="0" width="480" height="34" rx="10" fill="#1e293b"/>
+      <text x="16" y="22" font-size="12" font-weight="700" fill="#4ade80">✔ OPTIMIZED PATTERN: Set-Based Filter Context</text>
+
+      <text x="20" y="65" font-size="13" font-family="Consolas, Monaco, monospace" fill="#4ade80">Total Sales Red =</text>
+      <text x="20" y="95" font-size="13" font-family="Consolas, Monaco, monospace" fill="#38bdf8">CALCULATE (</text>
+      <text x="40" y="125" font-size="13" font-family="Consolas, Monaco, monospace" fill="#e2e8f0">    [Total Sales],</text>
+      <text x="40" y="155" font-size="13" font-family="Consolas, Monaco, monospace" fill="#a855f7">    KEEPFILTERS (</text>
+      <text x="60" y="185" font-size="13" font-family="Consolas, Monaco, monospace" fill="#e2e8f0">        DimProduct[Color] = "Red"</text>
+      <text x="40" y="215" font-size="13" font-family="Consolas, Monaco, monospace" fill="#a855f7">    )</text>
+      <text x="20" y="238" font-size="13" font-family="Consolas, Monaco, monospace" fill="#38bdf8">)</text>
+    </g>
+  </g>
+
+  <!-- FOOTER RULES -->
+  <g transform="translate(60, 1610)">
+    <rect width="1080" height="180" rx="16" fill="#131c2e" stroke="#1e293b" stroke-width="1.5"/>
+    <text x="40" y="38" font-size="16" font-weight="700" fill="#ffffff">SQLBI Golden Rules for VertiPaq &amp; DAX Optimization</text>
+
+    <g transform="translate(40, 65)">
+      <circle cx="8" cy="8" r="4" fill="#38bdf8"/>
+      <text x="24" y="12" font-size="13" fill="#e2e8f0"><tspan font-weight="700" fill="#38bdf8">Rule 1:</tspan> Never iterate over fact tables when a set filter on a dimension table can achieve the result.</text>
+
+      <circle cx="8" cy="38" r="4" fill="#38bdf8"/>
+      <text x="24" y="42" font-size="13" fill="#e2e8f0"><tspan font-weight="700" fill="#38bdf8">Rule 2:</tspan> Unnecessary context transition inside iterators is the #1 cause of DAX performance degradation.</text>
+
+      <circle cx="8" cy="68" r="4" fill="#38bdf8"/>
+      <text x="24" y="72" font-size="13" fill="#e2e8f0"><tspan font-weight="700" fill="#38bdf8">Rule 3:</tspan> Filter upstream on dimensions (small cardinality), never downstream via RELATED on fact rows.</text>
+
+      <circle cx="8" cy="98" r="4" fill="#38bdf8"/>
+      <text x="24" y="102" font-size="13" fill="#e2e8f0"><tspan font-weight="700" fill="#38bdf8">Rule 4:</tspan> Check materialization in Server Timings: if SE rows &gt;&gt; result rows, eliminate row-context transitions.</text>
+    </g>
+  </g>
+</svg>

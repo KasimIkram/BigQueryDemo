@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "8d7995bc47e23d3c01a1",
+  "position": {
+    "x": 141.64781906300485,
+    "y": 55.831987075928922,
+    "z": 6,
+    "height": 483.87722132471731,
+    "width": 635.347334410339
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactInternetSales"
+                    }
+                  },
+                  "Property": "Total Sales Red"
+                }
+              },
+              "queryRef": "FactInternetSales.Total Sales Red",
+              "nativeQueryRef": "Total Sales Red"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "6a19e3a4b06015a82601",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactInternetSales"
+              }
+            },
+            "Property": "Total Sales Red"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}

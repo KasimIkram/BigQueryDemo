@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 950" width="1400" height="950" style="background:#090d16; font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;">
+  <defs>
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="8" result="blur"/>
+      <feComposite in="SourceGraphic" in2="blur" operator="over"/>
+    </filter>
+  </defs>
+
+  <!-- BACKGROUND -->
+  <rect width="1400" height="950" fill="#090d16"/>
+  <circle cx="700" cy="475" r="450" fill="#38bdf8" opacity="0.02" filter="blur(90px)"/>
+
+  <!-- CONNECTING BRANCH LINES -->
+  <g stroke-width="2.5" fill="none" opacity="0.6">
+    <!-- Center to Root Cause (Top Left) -->
+    <path d="M 700 475 C 550 475, 450 250, 320 200" stroke="#f43f5e"/>
+    <!-- Center to Diagnostics (Bottom Left) -->
+    <path d="M 700 475 C 550 475, 450 700, 320 750" stroke="#fbbf24"/>
+    <!-- Center to Engine Mechanics (Top Right) -->
+    <path d="M 700 475 C 850 475, 950 250, 1080 200" stroke="#a855f7"/>
+    <!-- Center to Solution & Best Practices (Bottom Right) -->
+    <path d="M 700 475 C 850 475, 950 700, 1080 750" stroke="#10b981"/>
+
+    <!-- Sub branches: Root Cause -->
+    <path d="M 320 200 L 150 140" stroke="#f43f5e" stroke-dasharray="4,4"/>
+    <path d="M 320 200 L 150 200" stroke="#f43f5e" stroke-dasharray="4,4"/>
+    <path d="M 320 200 L 150 260" stroke="#f43f5e" stroke-dasharray="4,4"/>
+
+    <!-- Sub branches: Diagnostics -->
+    <path d="M 320 750 L 150 690" stroke="#fbbf24" stroke-dasharray="4,4"/>
+    <path d="M 320 750 L 150 750" stroke="#fbbf24" stroke-dasharray="4,4"/>
+    <path d="M 320 750 L 150 810" stroke="#fbbf24" stroke-dasharray="4,4"/>
+
+    <!-- Sub branches: Engine Mechanics -->
+    <path d="M 1080 200 L 1250 140" stroke="#a855f7" stroke-dasharray="4,4"/>
+    <path d="M 1080 200 L 1250 200" stroke="#a855f7" stroke-dasharray="4,4"/>
+    <path d="M 1080 200 L 1250 260" stroke="#a855f7" stroke-dasharray="4,4"/>
+
+    <!-- Sub branches: Solution -->
+    <path d="M 1080 750 L 1250 690" stroke="#10b981" stroke-dasharray="4,4"/>
+    <path d="M 1080 750 L 1250 750" stroke="#10b981" stroke-dasharray="4,4"/>
+    <path d="M 1080 750 L 1250 810" stroke="#10b981" stroke-dasharray="4,4"/>
+  </g>
+
+  <!-- CENTER NODE -->
+  <g transform="translate(560, 420)">
+    <rect width="280" height="110" rx="20" fill="#1e293b" stroke="#38bdf8" stroke-width="3" filter="url(#glow)"/>
+    <text x="140" y="42" font-size="11" font-weight="700" fill="#38bdf8" text-anchor="middle" letter-spacing="2">PERFORMANCE DIAGNOSIS</text>
+    <text x="140" y="70" font-size="20" font-weight="800" fill="#ffffff" text-anchor="middle">Red Sales Measure</text>
+    <text x="140" y="92" font-size="12" fill="#94a3b8" text-anchor="middle">BigQueryAdventureWorksDW</text>
+  </g>
+
+  <!-- BRANCH 1: ROOT CAUSE (TOP LEFT) -->
+  <g transform="translate(210, 160)">
+    <rect width="220" height="80" rx="14" fill="#1e293b" stroke="#f43f5e" stroke-width="2"/>
+    <text x="110" y="34" font-size="14" font-weight="800" fill="#f87171" text-anchor="middle">1. ROOT CAUSE</text>
+    <text x="110" y="58" font-size="12" fill="#ffffff" text-anchor="middle">Anti-Pattern Intersection</text>
+  </g>
+  <!-- Sub nodes -->
+  <g transform="translate(10, 120)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#fca5a5" text-anchor="middle">Fact Table SUMX Loop</text>
+  </g>
+  <g transform="translate(10, 180)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#fca5a5" text-anchor="middle">Row Context Transition</text>
+  </g>
+  <g transform="translate(10, 240)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#fca5a5" text-anchor="middle">Procedural RELATED inside IF</text>
+  </g>
+
+  <!-- BRANCH 2: DIAGNOSTICS (BOTTOM LEFT) -->
+  <g transform="translate(210, 710)">
+    <rect width="220" height="80" rx="14" fill="#1e293b" stroke="#fbbf24" stroke-width="2"/>
+    <text x="110" y="34" font-size="14" font-weight="800" fill="#fbbf24" text-anchor="middle">2. DIAGNOSTIC PROOF</text>
+    <text x="110" y="58" font-size="12" fill="#ffffff" text-anchor="middle">Server Timings &amp; VPAX</text>
+  </g>
+  <!-- Sub nodes -->
+  <g transform="translate(10, 670)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#fde68a" text-anchor="middle">107 ms vs 4 ms (27x)</text>
+  </g>
+  <g transform="translate(10, 730)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#fde68a" text-anchor="middle">3 SE Queries vs 1</text>
+  </g>
+  <g transform="translate(10, 790)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#fde68a" text-anchor="middle">60,398 Rows x2 Scanned</text>
+  </g>
+
+  <!-- BRANCH 3: ENGINE MECHANICS (TOP RIGHT) -->
+  <g transform="translate(970, 160)">
+    <rect width="220" height="80" rx="14" fill="#1e293b" stroke="#a855f7" stroke-width="2"/>
+    <text x="110" y="34" font-size="14" font-weight="800" fill="#c084fc" text-anchor="middle">3. ENGINE MECHANICS</text>
+    <text x="110" y="58" font-size="12" fill="#ffffff" text-anchor="middle">FE &amp; SE Workload Shift</text>
+  </g>
+  <!-- Sub nodes -->
+  <g transform="translate(1210, 120)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#e9d5ff" text-anchor="middle">SE Cannot Aggregate</text>
+  </g>
+  <g transform="translate(1210, 180)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#e9d5ff" text-anchor="middle">11.5 MB Datacache Dump</text>
+  </g>
+  <g transform="translate(1210, 240)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#e9d5ff" text-anchor="middle">FE Serial Row Loop (34ms)</text>
+  </g>
+
+  <!-- BRANCH 4: THE FIX (BOTTOM RIGHT) -->
+  <g transform="translate(970, 710)">
+    <rect width="220" height="80" rx="14" fill="#1e293b" stroke="#10b981" stroke-width="2"/>
+    <text x="110" y="34" font-size="14" font-weight="800" fill="#4ade80" text-anchor="middle">4. OPTIMIZATION &amp; FIX</text>
+    <text x="110" y="58" font-size="12" fill="#ffffff" text-anchor="middle">Set-Based CALCULATE</text>
+  </g>
+  <!-- Sub nodes -->
+  <g transform="translate(1210, 670)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#a7f3d0" text-anchor="middle">CALCULATE + KEEPFILTERS</text>
+  </g>
+  <g transform="translate(1210, 730)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#a7f3d0" text-anchor="middle">Relationship Auto-Filter</text>
+  </g>
+  <g transform="translate(1210, 790)">
+    <rect width="180" height="42" rx="8" fill="#131c2e" stroke="#334155"/>
+    <text x="90" y="26" font-size="11" font-weight="600" fill="#a7f3d0" text-anchor="middle">1 Scan, 1 Row, 1 ms SE</text>
+  </g>
+</svg>

@@ -1,0 +1,70 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.12.0/schema.json",
+  "name": "f10e6d1a2ac4d2c4dc77",
+  "position": {
+    "x": 812.66558966074319,
+    "y": 56.865912762520196,
+    "z": 7,
+    "height": 483.69636963696371,
+    "width": 635.347334410339
+  },
+  "visual": {
+    "visualType": "clusteredColumnChart",
+    "query": {
+      "queryState": {
+        "Y": {
+          "projections": [
+            {
+              "field": {
+                "Measure": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "FactInternetSales"
+                    }
+                  },
+                  "Property": "Total Sales Red BAD"
+                }
+              },
+              "queryRef": "FactInternetSales.Total Sales Red BAD",
+              "nativeQueryRef": "Total Sales Red BAD"
+            }
+          ]
+        }
+      }
+    },
+    "objects": {
+      "labels": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  },
+  "filterConfig": {
+    "filters": [
+      {
+        "name": "9ebfdc607eb1a4894cec",
+        "field": {
+          "Measure": {
+            "Expression": {
+              "SourceRef": {
+                "Entity": "FactInternetSales"
+              }
+            },
+            "Property": "Total Sales Red BAD"
+          }
+        },
+        "type": "Advanced"
+      }
+    ]
+  }
+}
