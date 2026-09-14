@@ -2,7 +2,8 @@
 
 I want you to investigate and diagnose a DAX performance issue and propose a fix, using the files in the **current Power BI project**.
 
-Work through the following steps in order. Do not skip steps.
+Work through the following steps in order. Do not skip steps. 
+Ask me any questions before proceding.
 
 ---
 
